@@ -1,4 +1,6 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
 /**
  * check_cycle - check the lists cycle
  * @list: the list to be checked
