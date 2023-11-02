@@ -5,12 +5,13 @@ if __name__ == '__main__':
     if len(sys.argv) != 4:
         print("Usage: ./100-my_calculaotr.py <a> <opperator> <b>")
         sys.exit(1)
-    a = int(sys.argv[1])
+    a = sys.argv[1]
     operator = sys.argv[2]
-    b = int(sys.argv[3])
+    b = sys.argv[3]
     if operator not in ('+', '-', '*', '/'):
         print("Unknown operator. Available operator: +, -, * and /")
         sys.exit(1)
+    a, b = int(a), int(b)
     if operator == '+':
         result = add(a, b)
     elif operator == '-':
@@ -18,5 +19,6 @@ if __name__ == '__main__':
     elif operator == '*':
         result = mul(a, b)
     elif operator == '/':
-        result = div(a, b)
+        if b != 0:
+            result = div(a, b)
     print("{} {} {} = {}".format(a, operator, b, result))
