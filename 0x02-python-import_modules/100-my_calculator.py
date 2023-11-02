@@ -8,7 +8,6 @@ if __name__ == '__main__':
     a = int(sys.argv[1])
     operator = sys.argv[2]
     b = int(sys.argv[3])
-    #a, operator, b = map(int, sys.argv[1:4])
     operators = {'+': add, '-': sub, '*': mul, '/': div}
     if operator not in operators:
         print("Unknown operator. Available operator: +, -, * and /")
