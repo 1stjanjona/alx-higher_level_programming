@@ -35,6 +35,13 @@ class Square:
 
     @position.setter
     def position(self, value):
+        """SEt position for current square.
+
+        Args:
+            value (tuple): position of square.
+        Raises:
+            TypeError: if position is not tuple of integers.
+        """
         not_tuple = not isinstance(value, tuple)
         len_not_2 = (len(value) != 2)
         all_not_int = not all(isinstance(n, int) for n in value)
@@ -46,7 +53,7 @@ class Square:
 
     def area(self):
         """Return area of current square."""
-        return self.__size * self.__size
+        return self.__size ** 2
 
     def my_print(self):
         """Print square."""
@@ -55,14 +62,14 @@ class Square:
             print()
             return
 
-        for _ in range(self.__position[1]):
+        for x in range(self.__position[1]):
             print()
 
-        for _ in range(self.__size):
-            for _ in range(self.__position[0]):
+        for x in range(self.__size):
+            for y in range(self.__position[0]):
                 print(" ", end="")
 
-            for _ in range(self.__size):
+            for z in range(self.__size):
                 print("#", end="")
 
             print()
