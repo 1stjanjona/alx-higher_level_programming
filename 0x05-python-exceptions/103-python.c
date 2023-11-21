@@ -2,6 +2,9 @@
 #include <floatobject.h>
 #include <stdlib.h>
 #include <stdio.h>
+void print_python_list(PyObject *p);
+void print_python_bytes(PyObject *p);
+void print_python_float(PyObject *p);
 /**
  * print_python_list - print python list
  * @p: adrees of PyList
@@ -11,15 +14,15 @@ void print_python_list(PyObject *p)
 {
 	int x;
 
-	 setbuf(stdout, NULL);
+	setbuf(stdout, NULL);
         printf("[*] Python list info\n");
 	if (strcmp(p->ob_type->tp_name, "list"))
 	{
 		printf("  [ERROR] Invalid list Object\n");
 		return;
 	}
-	printf("[*] Size of the Python List = %lu\n", ((PyVarObject *)p)->ob_size);
-	printf("[*] Allocated = %lu\n", ((PyListObject *)p)->allocated);
+	printf("[*] Size of the Python List = %ld\n", ((PyVarObject *)p)->ob_size);
+	printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
 	for (x = 0; x < ((PyVarObject *)p)->ob_size; x++)
 	{
 		printf("Element %d: %s\n", x,
@@ -46,27 +49,30 @@ void print_python_bytes(PyObject *p)
 
 	setbuf(stdout, NULL);
 	printf("[.] bytes Object info\n");
-	if (strcmp(p->ob_type->tp_name, "bytes"))
+	if (!strcmp(p->ob_type->tp_name, "bytes"))
 	{
 		printf("   [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 	size = ((PyVarObject *)p)->ob_size;
 	s = ((PyBytesObject *)p)->ob_sval;
-	lngth = (size + 1) > 10 ? 10 : (size + 1);
-	printf("   size: %lu\n", size);
+	lngth = (size_t)size;
+	printf("   size: %ld\n", size);
 	printf("   trying string: %s\n", s);
-	printf("   first %lu bytes: ", lngth);
-	for (x = 0; x < lngth; x++)
+	if (lngth < 10)
+	{
+		printf("   first %ld bytes: ", lngth + 1);
+	}
+	else
+	{
+		printf ("   first 10 bytes:");
+	}
+	for (x = 0; x < lngth && x < 10; x++)
 	{
 		printf("%02hhx\n", s[x]);
 		if ((x + 1) < lngth)
 		{
 			printf(" ");
-		}
-		else
-		{
-			printf("");
 		}
 	}
 	printf("\n");
@@ -82,7 +88,7 @@ void print_python_float(PyObject *p)
 
 	setbuf(stdout, NULL);
 	printf("[.] float object info\n");
-	if (strcmp(p->ob_type->tp_name, "float"))
+	if (!strcmp(p->ob_type->tp_name, "float"))
 	{
 		printf("  [ERROR] Invalid Float Object\n");
 		return;
