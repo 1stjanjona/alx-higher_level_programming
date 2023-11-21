@@ -39,6 +39,7 @@ class Square:
         len_not_2 = (len(value) != 2)
         all_not_int = not all(isinstance(n, int) for n in value)
         all_not_positive = not all(n > 0 for n in value)
+
         if not_tuple or len_not_2 or all_not_int or all_not_positive:
             raise TypeError('position must be a tuple of 2 positive integers')
         self.__position = value
@@ -49,15 +50,19 @@ class Square:
 
     def my_print(self):
         """Print square."""
+
         if self.__size == 0:
             print("")
             return
 
-        for x in range(0, self.__position[1]):
+        for _ in range(self.__position[1]):
             print("")
-        for x in range(0, self.__size):
-            for y in range(0, self.__position[0]):
+
+        for _ in range(self.__size):
+            for _ in range(self.__position[0]):
                 print(" ", end="")
-            for z in range(0, self.__size):
+
+            for _ in range(self.__size):
                 print("#", end="")
+
             print("")
