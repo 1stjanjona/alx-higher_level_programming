@@ -2,12 +2,19 @@
 """Define the Python class MagicClass."""
 import math
 class MagicClass:
-    """Python bytecode."""
+    """Python bytecode.
+
+    Attributes:
+        __radius (float or int): radius of Magical circle.
+    """
 
     def __init__(self, radius=0):
         """Init MsgicClass.
+
         Args:
-            radius: float or int radius of MagicClass
+            radius: float or int radius of MagicClass.
+        Raises:
+            TypeError: if radius is not a number
         """
         self.__radius = 0
 
@@ -16,9 +23,17 @@ class MagicClass:
         self.__radius = radius
     
     def area(self):
-        """Return area."""
+        """Calculate and Return area.
+
+        Returns:
+            float: area of magical circle.
+        """
         return (self.__radius ** 2 * math.pi)
     
     def circumference:
-        """Return circumference."""
+        """Calculate and Return circumference of magical circle.
+
+        Returns:
+            float: Circumference of magical circle.
+        """
         return (2 * math.pi * self.__radius)
