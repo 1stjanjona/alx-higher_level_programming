@@ -8,9 +8,10 @@ class Square:
     def __init__(self, size=0, position=(0, 0)):
         """Define square.
 
+
         Args:
-            size: size of square
-            position: position of square
+            size (int): size of square
+            position (tuple): position of square
         """
         self.__size = size
         self.__position = position
@@ -22,6 +23,15 @@ class Square:
 
     @size.setter
     def size(self, value):
+        """Set square size.
+
+
+        Args:
+            value (int): size value.
+        Reises:
+            TypeError: if size not integer
+            ValueError: if size < 0.
+        """
         if not isinstance(value, int):
             raise TypeError('size must be an integer')
         if value < 0:
@@ -56,8 +66,14 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
-        """Print square."""
+        """Print square with #.
 
+        If size == 0, return empty line.
+        if position[1] > 0, spaces will be added.
+
+        Returns:
+            print square.
+        """
         if self.__size == 0:
             print()
             return
@@ -68,8 +84,6 @@ class Square:
         for x in range(self.__size):
             for y in range(self.__position[0]):
                 print(" ", end="")
-
             for z in range(self.__size):
                 print("#", end="")
-
             print()
