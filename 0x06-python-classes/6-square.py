@@ -28,6 +28,7 @@ class Square:
 
         Args:
             value (int): size value.
+        A
         Reises:
             TypeError: if size not integer
             ValueError: if size < 0.
