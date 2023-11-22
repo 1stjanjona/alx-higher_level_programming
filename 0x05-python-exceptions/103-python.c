@@ -15,7 +15,7 @@ void print_python_list(PyObject *p)
 	int x;
 
 	setbuf(stdout, NULL);
-        printf("[*] Python list info\n");
+	printf("[*] Python list info\n");
 	if (strcmp(p->ob_type->tp_name, "list"))
 	{
 		printf("  [ERROR] Invalid list Object\n");
@@ -65,11 +65,11 @@ void print_python_bytes(PyObject *p)
 	}
 	else
 	{
-		printf ("   first 10 bytes:");
+		printf("   first 10 bytes:");
 	}
 	for (x = 0; x < lngth && x < 10; x++)
 	{
-		printf("%02hhx\n", s[x]);
+		printf("%02hhx\n", (unsigned char)s[x]);
 		if ((x + 1) < lngth)
 		{
 			printf(" ");
@@ -94,6 +94,6 @@ void print_python_float(PyObject *p)
 		return;
 	}
 	flt = ((PyFloatObject *)p)->ob_fval;
-	printf("  value: %s\n", PyOS_double_to_string(flt, 'r', 0, Py_DTSF_ADD_DOT_0,
-			       	NULL));
+	printf("  value: %s\n",
+			PyOS_double_to_string(flt, 'r', 0, Py_DTSF_ADD_DOT_0, NULL));
 }
