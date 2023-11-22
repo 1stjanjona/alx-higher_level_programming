@@ -53,13 +53,9 @@ class Square:
         Raises:
             TypeError: if position is not tuple of integers.
         """
-        if not isinstance(value, tuple):
-            raise TypeError('position maust be a tuple')
-        if len(value) != 2:
-            raise ValueError('position must be a tuple of 2 integers')
-        if not all(isinstance(n, int) for n in value):
-            raise TypeError('position must be a tuple of 2 integers')
-        if not all(n > 0 for n in value):
+        if not isinstance(value, tuple) or len(value) != 2 or \
+                not all(isinstance(n, int) for n in value) or \
+                not all(n > 0 for n in value):
             raise ValueError('position must be a tuple of 2 positive integers')
         self.__position = value
 
