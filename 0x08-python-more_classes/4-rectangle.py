@@ -14,7 +14,8 @@ class Rectangle:
         """to get width"""
         return self.__width
 
-    @width.setter(self, value):
+    @width.setter
+    def width(self, value):
         """set for width"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
@@ -48,11 +49,13 @@ class Rectangle:
 
     def __str__(self):
         """Print rectangle with #"""
+        if self.__width == 0 or self.__height == 0:
+            return ""
         s = ""
         if self.__width != 0 and self.__height != 0:
             for x in range(self.__height):
-                s += "\n".join("#" * self.__width)
-        return s
+                s += "#" * self.__width + "\n"
+        return s[:-1]
 
     def __repr__(self):
         """Return string representation of rectangle"""
