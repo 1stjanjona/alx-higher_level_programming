@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 '''8-class_to_json.py Module'''
-import json
 
 
 def class_to_json(obj):
