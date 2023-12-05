@@ -5,15 +5,15 @@ import json
 
 def class_to_json(obj):
     '''Return dictionary description for JSON serialization of an object'''
-    jsondict = {}
+    json_dict = {}
     if hasattr(obj, '__dict__'):
         for key, value in obj.__dict__.items():
             if isinstance(value, (list, dict, str, int, bool)):
-                jsondict[key] = value
+                json_dict[key] = value
     elif hasattr(obj, "__slots__"):
         for key in obj.__slots__:
             if hasattr(obj, key):
                 value = getattr(obj, key)
                 if isinstance(value, (list, dict, str, int, bool)):
-                    jsondict[key] = value
-    return jsondict
+                    json_dict[key] = value
+    return json_dict
