@@ -2,6 +2,7 @@
 '''Base unit tests Module'''
 import unittest
 from models.base import Base
+from tests.test_base import TestBase
 from models.rectangle import Rectangle
 from models.square import Square
 
