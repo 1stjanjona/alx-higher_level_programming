@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """models/square.py Module"""
-from tests.test_models.test_square import TestSquare
 from models.rectangle import Rectangle
 
 

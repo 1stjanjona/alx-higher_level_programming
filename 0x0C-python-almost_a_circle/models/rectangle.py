@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 '''Rectangle.py Module'''
-from tests.test_models.test_rectangle import TestRectangle
 from models.base import Base
 
 
