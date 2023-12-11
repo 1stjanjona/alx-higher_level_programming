@@ -9,10 +9,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         '''Class Conctructor'''
         super().__init__(id)
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
     @property
     def width(self):
@@ -62,7 +62,7 @@ class Rectangle(Base):
         '''Validator of attributes value.'''
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
-        if exp and value <= 0:
+        if name == "x" and value <= 0:
             raise ValueError("{} must be > 0".format(name))
         if not exp and value < 0:
             raise ValueError("{} must be >= 0".format(name))
