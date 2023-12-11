@@ -97,19 +97,22 @@ class Base:
             for row in reader:
                 row = [int(r) for r in row]
                 if cls.__name__ is Rectangle:
-                    i = row[0]
-                    w = row[1]
-                    h = row[2]
-                    a = row[3]
-                    b = row[4]
-                    c = {"id": i, "Width": w, "height": h, "x": a, "y": b}
+                    if len(row) == 5:
+                        i = row[0]
+                        w = row[1]
+                        h = row[2]
+                        a = row[3]
+                        b = row[4]
+                        c = {"id": i, "Width": w, "height": h, "x": a, "y": b}
+                        obj_list.append(cls.create(**c))
                 elif cls.__name__ is Square:
-                    i = row[0]
-                    s = row[1]
-                    n = row[2]
-                    m = row[3]
-                    c = {"id": i, "size": s, "x": n, "y": m}
-                obj_list.append(cls.create(**c))
+                    if len(row) == 4:
+                        i = row[0]
+                        s = row[1]
+                        n = row[2]
+                        m = row[3]
+                        c = {"id": i, "size": s, "x": n, "y": m}
+                        obj_list.append(cls.create(**c))
         return obj_list
 
     @staticmethod

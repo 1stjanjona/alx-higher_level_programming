@@ -62,9 +62,9 @@ class Rectangle(Base):
         '''Validator of attributes value.'''
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
-        if not allow_zero and value <= 0:
+        if not allow_zero and value == 0:
             raise ValueError("{} must be > 0".format(name))
-        if value < 0:
+        elif value < 0:
             raise ValueError("{} must be >= 0".format(name))
 
     def area(self):
