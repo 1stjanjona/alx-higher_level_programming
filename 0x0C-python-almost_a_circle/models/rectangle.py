@@ -84,7 +84,7 @@ class Rectangle(Base):
         rect = type(self).__name__
         id_ = self.id
         x_ = self.x
-        y_ = slef.y
+        y_ = self.y
         w = self.width
         h = self.height
         return ('[{}] ({}) {}/{} - {}/{}'.format(rect, id_, x_, y_, w, h))
