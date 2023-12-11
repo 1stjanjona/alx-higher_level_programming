@@ -58,13 +58,13 @@ class Rectangle(Base):
         self.attributes_validator("y", value)
         self.__y = value
 
-    def attributes_validator(self, name, value, exp=True):
+    def attributes_validator(self, name, value, allow_zero=True):
         '''Validator of attributes value.'''
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
-        if name == "x" and value <= 0:
+        if not allow_zero and value <= 0:
             raise ValueError("{} must be > 0".format(name))
-        if not exp and value < 0:
+        if value < 0:
             raise ValueError("{} must be >= 0".format(name))
 
     def area(self):
