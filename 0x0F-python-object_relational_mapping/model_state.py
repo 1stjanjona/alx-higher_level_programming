@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''model_state.py'''
-from sqlalchemy import Column, Integer, String, MetaData
+from sqlalchemy import Column, Integer, String, MetaData, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from model_state import Base, State
 
@@ -15,6 +15,6 @@ class State(Base):
     name = Column(String(128), nullable=False)
 
 
-if _name__ == "__main__":
+if __name__ == "__main__":
     engine = create_engine('mysql://username:password@localhost:3306/database')
     Base.metadata.create_all(engine)
