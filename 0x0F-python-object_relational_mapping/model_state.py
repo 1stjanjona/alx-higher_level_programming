@@ -2,6 +2,7 @@
 '''model_state.py'''
 from sqlalchemy import Column, Integer, String, MetaData
 from sqlalchemy.ext.declarative import declarative_base
+from model_state import Base, State
 
 
 Base = declarative_base()
