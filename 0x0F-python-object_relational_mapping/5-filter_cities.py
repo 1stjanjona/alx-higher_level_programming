@@ -14,11 +14,12 @@ if __name__ == "__main__":
         db = MySQLdb.connect(host="localhost", user=username,
                              passwd=password, db=database, port=3306)
         cur = db.cursor()
-        query = "SELECT cities.id, cities.name FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id;"
+        query = "SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id;"
         cur.execute(query, (state_name,))
         rows = cur.fetchall()
-        for row in rows:
-            print(row)
+        city_names = [row[0] for row in rows]
+        result = ", ".join(city_names)
+        print(result)
     except MySQLdb.Error as e:
         print("MySQL Error {}: {}".format(e.args[0], e.args[1]))
         sys.exit(1)
