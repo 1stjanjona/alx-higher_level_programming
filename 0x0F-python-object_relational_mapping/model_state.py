@@ -14,7 +14,7 @@ class State(Base):
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
 
-
+'''
 if __name__ == "__main__":
     engine = create_engine('mysql://username:password@localhost:3306/database')
-    Base.metadata.create_all(engine)
+    Base.metadata.create_all(engine)'''
