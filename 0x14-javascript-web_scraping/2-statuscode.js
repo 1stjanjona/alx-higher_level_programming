@@ -9,6 +9,16 @@ if (process.argv.length < 3) {
   process.exit(1); // Terminate the script with a non-zero exit code to indicate an error
 }
 
+//request.get(process.argv[2])
+// Use the 'request' module to perform an HTTP GET request to the URL.
+
+  //.on('response', function (response) {
+    // Set up an event listener for the 'response' event emitted by the HTTP request.
+
+    //console.log(`code: ${response.statusCode}`);
+    // Log the HTTP status code of the response to the console.
+  //});
+
 request.get(process.argv[2])
 // Use the 'request' module to perform an HTTP GET request to the URL.
 
@@ -17,4 +27,10 @@ request.get(process.argv[2])
 
     console.log(`code: ${response.statusCode}`);
     // Log the HTTP status code of the response to the console.
+  })
+  .on('error', function (error) {
+    // Set up an event listener for the 'error' event emitted if the request encounters an error.
+    
+    console.error('Error requesting the URL:', error);
+    // Log the error to the console.
   });
