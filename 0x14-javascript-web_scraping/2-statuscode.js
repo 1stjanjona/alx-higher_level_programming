@@ -19,7 +19,7 @@ if (process.argv.length < 3) {
     // Log the HTTP status code of the response to the console.
   //});
 
-request.get(process.argv[2])
+//request.get(process.argv[2])
 // Use the 'request' module to perform an HTTP GET request to the URL.
 
   .on('response', function (response) {
@@ -27,8 +27,8 @@ request.get(process.argv[2])
 
     console.log(`code: ${response.statusCode}`);
     // Log the HTTP status code of the response to the console.
-  })
-  .on('error', function (error) {
+  });
+  //.on('error', function (error) {
     // Set up an event listener for the 'error' event emitted if the request encounters an error.
     
     console.error('Error requesting the URL:', error);
